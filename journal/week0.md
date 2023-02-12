@@ -8,13 +8,13 @@ I configured it to send a notification message through the SNS service whenever 
 
 Below is the screenshot of the same:
 
-![Billing Alarm 1](_docs/assets/week0/billing-alarm-1.jpg)
+![Billing Alarm 1](../_docs/assets/week0/billing-alarm-1.jpg)
 
-![Billing Alarm 2](_docs/assets/week0/billing-alarm-2.jpg)
+![Billing Alarm 2](../_docs/assets/week0/billing-alarm-2.jpg)
 
-![Billing Alarm 3](_docs/assets/week0/billing-alarm-3.jpg)
+![Billing Alarm 3](../_docs/assets/week0/billing-alarm-3.jpg)
 
-![Billing Alarm 4](_docs/assets/week0/billing-alarm-4.jpg)
+![Billing Alarm 4](../_docs/assets/week0/billing-alarm-4.jpg)
 
 
 - Set a AWS Budget.
@@ -24,11 +24,11 @@ I created a Monthly cose budget for $20 .
 Screenshots below:
 
 
-![Budget 1](_docs/assets/week0/budget-1.jpg)
+![Budget 1](../_docs/assets/week0/budget-1.jpg)
 
-![Budget 2](_docs/assets/week0/budget-2.jpg)
+![Budget 2](../_docs/assets/week0/budget-2.jpg)
 
-![Budget 3](_docs/assets/week0/budget-3.jpg)
+![Budget 3](../_docs/assets/week0/budget-3.jpg)
 
 - Generating AWS Credentials.
 
@@ -37,7 +37,7 @@ I created a new IAM credentials for the bootcamp purpose. I created a new accoun
 Screenshots below:
 
 
-![IAM 1](_docs/assets/week0/IAM-1.jpg)
+![IAM 1](../_docs/assets/week0/IAM-1.jpg)
 
 
 - Using CloudShell
@@ -47,8 +47,8 @@ I opened the Cloud shell environment on AWS and created a S# bucket using AWS CL
 
 Screenshots below:
 
-![CloudShell 1](_docs/assets/week0/CloudShell-1.JPG)
-![CloudShell 2](_docs/assets/week0/CloudShell-2.JPG)
+![CloudShell 1](../_docs/assets/week0/CloudShell-1.JPG)
+![CloudShell 2](../_docs/assets/week0/CloudShell-2.JPG)
 
 - Conceptual Architecture Diagram or your Napkins
 
