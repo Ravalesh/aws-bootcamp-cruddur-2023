@@ -8,13 +8,13 @@ I configured it to send a notification message through the SNS service whenever 
 
 Below is the screenshot of the same:
 
-![Billing Alarm 1](../_docs/assets/week0/billing-alarm-1.jpg)
+![Billing Alarm 1](../_docs/assets/week0/billing-alarm-1.JPG)
 
-![Billing Alarm 2](../_docs/assets/week0/billing-alarm-2.jpg)
+![Billing Alarm 2](../_docs/assets/week0/billing-alarm-2.JPG)
 
-![Billing Alarm 3](../_docs/assets/week0/billing-alarm-3.jpg)
+![Billing Alarm 3](../_docs/assets/week0/billing-alarm-3.JPG)
 
-![Billing Alarm 4](../_docs/assets/week0/billing-alarm-4.jpg)
+![Billing Alarm 4](../_docs/assets/week0/billing-alarm-4.JPG)
 
 
 - Set a AWS Budget.
@@ -24,11 +24,11 @@ I created a Monthly cose budget for $20 .
 Screenshots below:
 
 
-![Budget 1](../_docs/assets/week0/budget-1.jpg)
+![Budget 1](../_docs/assets/week0/budget-1.JPG)
 
-![Budget 2](../_docs/assets/week0/budget-2.jpg)
+![Budget 2](../_docs/assets/week0/budget-2.JPG)
 
-![Budget 3](../_docs/assets/week0/budget-3.jpg)
+![Budget 3](../_docs/assets/week0/budget-3.JPG)
 
 - Generating AWS Credentials.
 
@@ -37,7 +37,7 @@ I created a new IAM credentials for the bootcamp purpose. I created a new accoun
 Screenshots below:
 
 
-![IAM 1](../_docs/assets/week0/IAM-1.jpg)
+![IAM 1](../_docs/assets/week0/IAM-1.JPG)
 
 
 - Using CloudShell
