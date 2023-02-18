@@ -52,9 +52,9 @@ Screenshots below:
 
 - Conceptual Architecture Diagram or your Napkins
 
-Here is teh link to the Conceptual diagram I made for Cuddur during the livestream.
+Here is the napkin diagram I made for the Cruddur:
 
-https://lucid.app/lucidchart/ba5b6089-8894-4eb4-af90-c8f6a6b2ab5a/edit?viewport_loc=-288%2C-252%2C2219%2C1065%2C0_0&invitationId=inv_e9e3a751-bbc1-46fb-84f3-d16d6e22e4e6
+![Napkin](../_docs/assets/week0/20230218_195023.jpg)
 
 
 - Destroy your root account credentials, Set MFA, IAM role
@@ -67,7 +67,9 @@ I created an IAM role for muyself and have set MFA for the same. I am planning t
 
  - Create an architectural diagram (to the best of your ability) the CI/CD logical pipeline in Lucid Charts
 
- I came up with an archetectural diagram for the CICD process followed in my Company:
+ I came up with an archetectural diagram for the CICD process:
+ 
+ 
 
  https://lucid.app/lucidchart/a9cee8f6-a310-43a1-bb81-86c847833f3c/edit?viewport_loc=-119%2C-70%2C4039%2C1940%2C0_0&invitationId=inv_0c8c4d6b-0664-4866-a3ec-36ba7f86682e
  
