@@ -71,3 +71,10 @@ I created an IAM role for muyself and have set MFA for the same. I am planning t
 
  https://lucid.app/lucidchart/a9cee8f6-a310-43a1-bb81-86c847833f3c/edit?viewport_loc=-119%2C-70%2C4039%2C1940%2C0_0&invitationId=inv_0c8c4d6b-0664-4866-a3ec-36ba7f86682e
  
+ 
+ - Logical Diagram for Crudder.
+ 
+ I followed the video tutorial and I cam up with similar but kind of different diagram for Crudder. Link below
+ 
+ https://lucid.app/lucidchart/315c5d97-2488-4787-a738-61394fbd08f7/edit?viewport_loc=-18%2C-88%2C2725%2C1308%2C0_0&invitationId=inv_f82a80ff-28de-4d47-bd7b-4f4cd62405d7
+ 
