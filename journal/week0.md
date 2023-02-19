@@ -80,3 +80,10 @@ I created an IAM role for muyself and have set MFA for the same. I am planning t
  
  https://lucid.app/lucidchart/315c5d97-2488-4787-a738-61394fbd08f7/edit?viewport_loc=-18%2C-88%2C2725%2C1308%2C0_0&invitationId=inv_f82a80ff-28de-4d47-bd7b-4f4cd62405d7
  
+ - Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
+ 
+ I created an Event bridge for AWS health monitoring. Screenshots below:
+ 
+ ![HEALTHDASHBOARD 1](../_docs/assets/week0/HealthDashbardEB1.JPG)
+ 
+ ![HEALTHDASHBOARD 2](../_docs/assets/week0/HealthDashbardEB2.JPG)
