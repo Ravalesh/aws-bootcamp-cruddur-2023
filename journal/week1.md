@@ -27,6 +27,8 @@ docker run -itd -e REACT_APP_BACKEND_URL="https://4567-${GITPOD_WORKSPACE_ID}.${
 
 ```
 
+The above script is commited in the deploy.sh file of the root directory
+
 I was successfully able to run both the backend and front end containers and both containers were able to communicate with each other.
 
 ![TASK1 1](../_docs/assets/week1/TASK1-01.JPG)
