@@ -12,6 +12,14 @@ services:
       - "4567:4567"
     volumes:
       - ./backend-flask:/backend-flask
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4567/api/health_check"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      db:
+        condition: service_healthy
   frontend-react-js:
     environment:
       REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
@@ -20,6 +28,10 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend-react-js:/frontend-react-js
+      - /frontend-react-js/node_modules
+    depends_on:
+      backend-flask:
+        condition: service_healthy
   dynamodb-local:
     user: root
     command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
@@ -40,6 +52,11 @@ services:
       - "5432:5432"
     volumes:
       - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 1s
+      timeout: 5s
+      retries: 5
 
 
 # the name flag is a hack to change the default prepend folder
