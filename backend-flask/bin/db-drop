@@ -1,0 +1,6 @@
+#! /usr/bin/bash
+echo "db-drop"
+
+NO_DB_CONNECTION=$(sed 's/\/cruddur//g' <<< "$CONNECTION_URL")
+
+psql $NO_DB_CONNECTION -c "DROP DATABASE cruddur;"
