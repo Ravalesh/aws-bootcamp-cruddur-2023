@@ -45,22 +45,33 @@ class CreateActivity:
       }   
     else:
       expires_at = now + ttl_offset
-      CreateActivity.create_activity(user_handle, message, expires_at)
-      model['data'] = {
-        'uuid': uuid.uuid4(),
-        'display_name': 'Andrew Brown',
-        'handle':  user_handle,
-        'message': message,
-        'created_at': now.isoformat(),
-        'expires_at': (now + ttl_offset).isoformat()
-      }
+      user_uuid = CreateActivity.create_activity(user_handle, message, expires_at)
+      # model['data'] = {
+      #   'uuid': uuid.uuid4(),
+      #   'display_name': 'Andrew Brown',
+      #   'handle':  user_handle,
+      #   'message': message,
+      #   'created_at': now.isoformat(),
+      #   'expires_at': (now + ttl_offset).isoformat()
+      # }
+      model['data'] = CreateActivity.query_object_activity(user_uuid)
+
     return model
 
   def create_activity(handle, message, expires_at):
 
-    sql = db.load_template('create_activity')
+    sql = db.load_template('db', 'sql', 'activity', 'create')
     uuid = db.sql_commit_with_returning_id(sql, 
     handle = handle, 
     message = message, 
     expires_at = expires_at)
+    return uuid
+
+  def query_object_activity(user_uuid):
+    sql = db.load_template('db', 'sql', 'activity', 'object')
+    crud = db.fetch_object_json(sql, 
+    uuid = user_uuid
+    )
+    return crud
+
     

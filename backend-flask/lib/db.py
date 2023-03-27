@@ -6,13 +6,22 @@ class Db:
   def __init__(self):
     self.init_pool()
 
+  def print_sql(self, sql):
+    cyan = '\033[96m'
+    no_color = '\033[0m'
+    print(f'{cyan} {sql} {no_color}')
+
   def init_pool(self):
     connection_url = os.getenv("CONNECTION_URL")
     self.pool = ConnectionPool(connection_url)
 
-  def load_template(self, filename):
-    template_path = os.path.join(app.root_path,'db','sql', f'{filename}.sql')
+  def load_template(self, *args):
+  
+    pathing = list((app.root_path,) + args)
+    pathing[-1] = pathing[-1] + ".sql"
 
+    template_path = os.path.join(*pathing)
+    print(template_path)
     with open(template_path) as reader:
       template_content = reader.read()
     return template_content
@@ -36,10 +45,11 @@ class Db:
 
   # When we want to commit data to database
   def sql_commit(self, sql):
-    print(f'SQL Statement: {sql}')
+
+    self.print_sql(f'SQL Statement: {sql}')
     try:
       with self.pool.connection() as conn:
-        with conn.execute() as cur:
+        with conn.cursor() as cur:
           cur.execute(sql)
           conn.commit()
     except Exception as err:
@@ -48,7 +58,7 @@ class Db:
 
   # When we want to commit data to database and return the inserted id
   def sql_commit_with_returning_id(self, sql, **kwargs):
-    print(f'SQL Statement: {sql}')
+    self.print_sql(f'SQL Statement: {sql}')
 
     try:
       with self.pool.connection() as conn:
@@ -56,7 +66,7 @@ class Db:
           cur.execute(sql, kwargs)
           last_id = cur.fetchone()[0]
           conn.commit()
-          return returing_id
+          return last_id
     except Exception as err:
       print(err)
       #conn.rollback()
@@ -65,6 +75,8 @@ class Db:
   def fetch_array_json(self, template):
     try:
       wrapped_sql = self.query_wrap_array(template)
+      self.print_sql(f'SQL Statement: {wrapped_sql}')
+
       with self.pool.connection() as conn:
           with conn.cursor() as cur:
             cur.execute(wrapped_sql)
@@ -77,12 +89,14 @@ class Db:
       return ''
 
   # When we want to return single object
-  def fetch_object_json(self, template):
+  def fetch_object_json(self, template, **kwargs):
     try:
       wrapped_sql = self.query_wrap_object(template)
+      self.print_sql(f'SQL Statement: {wrapped_sql}')
+
       with self.pool.connection() as conn:
           with conn.cursor() as cur:
-            cur.execute(wrapped_sql)
+            cur.execute(wrapped_sql, kwargs)
             # this will return a tuple
             # the first field being the data
             json = cur.fetchone()
