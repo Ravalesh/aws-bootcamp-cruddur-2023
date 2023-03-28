@@ -72,18 +72,22 @@ class Db:
       #conn.rollback()
 
   # When we want to fetch array of objects
-  def fetch_array_json(self, template):
+  def fetch_array_json(self, template, **kwargs):
     try:
       wrapped_sql = self.query_wrap_array(template)
       self.print_sql(f'SQL Statement: {wrapped_sql}')
 
+
       with self.pool.connection() as conn:
           with conn.cursor() as cur:
-            cur.execute(wrapped_sql)
+            cur.execute(wrapped_sql, kwargs)
             # this will return a tuple
             # the first field being the data
             json = cur.fetchone()
-            return json[0]
+            if json is not None and len(json) > 0:
+              return json[0]
+            else:
+              return "[]"
     except Exception as err:
       print(err)
       return ''
@@ -100,7 +104,10 @@ class Db:
             # this will return a tuple
             # the first field being the data
             json = cur.fetchone()
-            return json[0]
+            if json is not None and len(json) > 0:
+              return json[0]
+            else:
+              return "{}"
     except Exception as err:
       print(err)
       return ''
