@@ -8,4 +8,4 @@ printf "${CYAN}==== ${LABEL}${NO_COLOR}\n"
 
 NO_DB_CONNECTION=$(sed 's/\/cruddur//g' <<< "$CONNECTION_URL")
 
-psql $NO_DB_CONNECTION -c "DROP DATABASE cruddur;"
+psql $NO_DB_CONNECTION -c "DROP DATABASE IF EXISTS cruddur;"
