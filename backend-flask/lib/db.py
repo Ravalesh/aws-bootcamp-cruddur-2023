@@ -44,13 +44,13 @@ class Db:
     return sql
 
   # When we want to commit data to database
-  def sql_commit(self, sql):
+  def sql_commit(self, sql, **kwargs):
 
     self.print_sql(f'SQL Statement: {sql}')
     try:
       with self.pool.connection() as conn:
         with conn.cursor() as cur:
-          cur.execute(sql)
+          cur.execute(sql, kwargs)
           conn.commit()
     except Exception as err:
       print(err)
