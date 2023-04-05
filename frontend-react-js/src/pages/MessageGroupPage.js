@@ -7,8 +7,7 @@ import MessageGroupFeed from '../components/MessageGroupFeed';
 import MessagesFeed from '../components/MessageFeed';
 import MessagesForm from '../components/MessageForm';
 
-// [TODO] Authenication
-import Cookies from 'js-cookie'
+import checkAuth from '../lib/CheckAuth';
 
 export default function MessageGroupPage() {
   const [messageGroups, setMessageGroups] = React.useState([]);
@@ -40,9 +39,12 @@ export default function MessageGroupPage() {
 
   const loadMessageGroupData = async () => {
     try {
-      const handle = `@${params.handle}`;
-      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/messages/${handle}`
+      const messageGroupUuid = `${params.message_group_uuid}`;
+      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/messages/${messageGroupUuid}`
       const res = await fetch(backend_url, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`
+        },
         method: "GET"
       });
       let resJson = await res.json();
@@ -56,17 +58,6 @@ export default function MessageGroupPage() {
     }
   };  
 
-  const checkAuth = async () => {
-    console.log('checkAuth')
-    // [TODO] Authenication
-    if (Cookies.get('user.logged_in')) {
-      setUser({
-        display_name: Cookies.get('user.name'),
-        handle: Cookies.get('user.username')
-      })
-    }
-  };
-
   React.useEffect(()=>{
     //prevents double call
     if (dataFetchedRef.current) return;
@@ -74,7 +65,7 @@ export default function MessageGroupPage() {
 
     loadMessageGroupsData();
     loadMessageGroupData();
-    checkAuth();
+    checkAuth(setUser);
   }, [])
   return (
     <article>
