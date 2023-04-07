@@ -119,11 +119,11 @@ cors = CORS(
 #     LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
 #     return response
 
-# ROLLBAR testing end point
-@app.route('/rollbar/test')
-def rollbar_test():
-    rollbar.report_message('Hello World!', 'warning')
-    return "Hello World!"
+# # ROLLBAR testing end point
+# @app.route('/rollbar/test')
+# def rollbar_test():
+#     rollbar.report_message('Hello World!', 'warning')
+#     return "Hello World!"
 
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():
@@ -283,10 +283,9 @@ def data_activities_reply(activity_uuid):
   return
 
 
-@app.route("/api/health_check", methods=['GET'])
+@app.route('/api/health-check')
 def health_check():
-  data = HealthCheck.run()
-  return data, 200
+  return {'success': True}, 200
 
 @app.route("/api/users/@<string:handle>/short", methods=['GET'])
 def data_users_short(handle):
