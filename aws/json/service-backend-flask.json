@@ -1,0 +1,26 @@
+{
+    "cluster": "cruddur",
+    "launchType": "FARGATE",
+    "desiredCount": 1,
+    "enableECSManagedTags": true,
+    "enableExecuteCommand": true,
+    "networkConfiguration": {
+      "awsvpcConfiguration": {
+        "assignPublicIp": "ENABLED",
+        "securityGroups": [
+          "sg-023360e404f53c025"
+        ],
+        "subnets": [
+          "subnet-0fb0eeb726c5f0f9e",
+          "subnet-086244d9aa2a855ac",
+          "subnet-0517400e99c61d58b",
+          "subnet-0f268282696043ba4",
+          "subnet-0efca798f615175ab",
+          "subnet-01d9882415e2af437"
+        ]
+      }
+    },
+    "propagateTags": "SERVICE",
+    "serviceName": "backend-flask",
+    "taskDefinition": "backend-flask"
+  }
