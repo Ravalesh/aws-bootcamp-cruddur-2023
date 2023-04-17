@@ -44,8 +44,8 @@
           {"name": "OTEL_EXPORTER_OTLP_ENDPOINT", "value": "https://api.honeycomb.io"},
           {"name": "AWS_COGNITO_USER_POOL_ID", "value": "us-east-1_sICoqzLuB"},
           {"name": "AWS_COGNITO_USER_POOL_CLIENT_ID", "value": "7pub7fojh5a28no0p3k58p1ajv"},
-          {"name": "FRONTEND_URL", "value": "*"},
-          {"name": "BACKEND_URL", "value": "*"},
+          {"name": "FRONTEND_URL", "value": "https://ravalesh.click"},
+          {"name": "BACKEND_URL", "value": "https://api.ravalesh.click"},
           {"name": "AWS_DEFAULT_REGION", "value": "us-east-1"}
         ],
         "secrets": [
